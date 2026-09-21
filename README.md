@@ -4,8 +4,6 @@
 
 Notes, tasks, and documents usually live inside applications. To work with them in your preferred editor or process them with a script, you have to export them or learn a separate API.
 
-AI agents work particularly well with files. They already know how to read, search, compare, and edit them using standard tools. OPP brings the same approach to structured application data, beyond local documents.
-
 OPP is a proposed open protocol that lets applications expose their data as files and accept changes back. Saving a document in an editor, for example, can become an operation on application data.
 
 **An application describes its entities through a common model that any compatible client can use.** The model includes data representations, hierarchy, and allowed operations. OPP Drive is the first planned client to project this model into the filesystem.
@@ -30,11 +28,16 @@ OPP/
 
 You can open a note in a text editor, find a line through the terminal, or process several documents with a script. These tools already work with files, so they do not need a separate integration for each application.
 
-You can ask an agent to read the project notes and update the work plan. It finds the files, reads them, and makes edits using the same tools it uses for local documents. OPP sends the changes to the application, where they go through its usual permission checks and validation rules.
-
 **The application remains the source of truth.** Files and folders represent its entities: notes, projects, and tasks. Saving a file becomes a request to change an entity. Renaming, moving, and deleting are available only where the application allows them.
 
 This model fits knowledge bases, issue trackers, CMSs, and other applications whose data naturally maps to documents and hierarchies.
+
+## Use cases
+
+* **Editors.** Open a note or article in your preferred editor and send edits back by saving the file.
+* **CLI and scripts.** Search application data from the terminal or process several documents with a script.
+* **Automation.** Connect existing tools that read and write files to application data through Drive.
+* **AI agents.** Ask an agent to read project notes and update a work plan using its existing file tools. Changes go through the application's permission checks and validation rules.
 
 ## How it works
 
@@ -87,3 +90,7 @@ Drive receives this description through the protocol. It does not need to know h
 * **Explicit conflicts.** The protocol must account for data revisions and report conflicting changes rather than silently overwrite them.
 
 The next goal is to define a minimal specification and validate it with a small application, a reference SDK, OPP Drive, and a protocol conformance test suite.
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE).
